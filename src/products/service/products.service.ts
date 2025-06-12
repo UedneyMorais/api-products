@@ -1,10 +1,12 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { CreateProductDto } from '../dto/create-product.dto';
 import { UpdateProductDto } from '../dto/update-product.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Product } from '../entities/product.entity';
 import slugify from 'slugify';
+import { InternalServerError } from '../../common/exceptions/internal-server-error.exception';
+import { NotFoundException } from '../../common/exceptions/not-found.exception';
 
 @Injectable()
 export class ProductsService {
@@ -23,6 +25,11 @@ export class ProductsService {
       imagePath,
       slug,
     });
+
+    if (!product) {
+      throw new InternalServerError();
+    }
+
     return this.productRepository.save(product);
   }
 
@@ -32,20 +39,30 @@ export class ProductsService {
 
   async findOne(id: number): Promise<Product> {
     const product = await this.productRepository.findOne({ where: { id } });
-
-    return product!;
-  }
-
-  async update(id: number, updateProductDto: UpdateProductDto) {
-    const product = await this.findOne(id);
     if (!product) {
-      throw new NotFoundException('');
+      throw new NotFoundException();
     }
-    await this.productRepository.update(id, updateProductDto);
+
     return product;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} product`;
+  async update(id: number, updateProductDto: UpdateProductDto) {
+    const productFound = await this.findOne(id);
+    if (!productFound) {
+      throw new NotFoundException();
+    }
+    const updatedProduct = await this.productRepository.update(
+      id,
+      updateProductDto,
+    );
+    return updatedProduct;
+  }
+
+  async remove(id: number) {
+    const productFound = await this.findOne(id);
+    if (!productFound) {
+      throw new NotFoundException();
+    }
+    return this.productRepository.delete(id);
   }
 }
