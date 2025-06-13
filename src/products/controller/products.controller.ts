@@ -28,7 +28,6 @@ import { Product } from '../entities/product.entity';
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
-  // --- Create Product Method ---
   /**
    * Creates a new product with its associated image.
    *
