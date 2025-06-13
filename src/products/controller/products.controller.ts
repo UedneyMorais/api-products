@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import {
   Controller,
   Post,
@@ -12,7 +12,14 @@ import {
   Patch,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { ApiConsumes, ApiBody, ApiTags } from '@nestjs/swagger';
+import {
+  ApiConsumes,
+  ApiBody,
+  ApiTags,
+  ApiResponse,
+  ApiOperation,
+} from '@nestjs/swagger';
+import { multerOptions } from '../../common/config/multer.config';
 import { CreateProductDto } from '../dto/create-product.dto';
 import { UpdateProductDto } from '../dto/update-product.dto';
 import { ProductsService } from '../service/products.service';
@@ -23,43 +30,8 @@ import { Product } from '../entities/product.entity';
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
-
-  // @Post()
-  // @UseInterceptors(FileInterceptor('image'))
-  // @ApiConsumes('multipart/form-data')
-  // @ApiBody({
-  //   description: 'Criar um novo produto com imagem',
-  //   type: CreateProductDto,
-  // })
-  // create(
-  //   @Body() createProductDto: CreateProductDto,
-  //   @UploadedFile() image: Express.Multer.File,
-  // ) {
-  //   if (!image) {
-  //     throw new BadRequestException('Imagem é obrigatória');
-  //   }
-
-  //   return this.productsService.create(createProductDto, image.path);
-  // }
-
-  // @Post()
-  // @ApiBody({
-  //   description: 'Criar um novo produto com imagem',
-  //   type: CreateProductDto,
-  // })
-  // create(
-  //   @Body() createProductDto: CreateProductDto,
-  //   // @UploadedFile() image: Express.Multer.File,
-  // ) {
-  //   // if (!image) {
-  //   //   throw new BadRequestException('Imagem é obrigatória');
-  //   // }
-
-  //   return this.productsService.create(createProductDto);
-  // }
-
   @Post()
-  @UseInterceptors(FileInterceptor('image', { dest: './uploads' }))
+  @UseInterceptors(FileInterceptor('image', multerOptions))
   @ApiConsumes('multipart/form-data')
   @ApiBody({
     schema: {
@@ -94,8 +66,34 @@ export class ProductsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateProductDto: UpdateProductDto) {
-    return this.productsService.update(+id, updateProductDto);
+  @UseInterceptors(FileInterceptor('image', multerOptions))
+  @ApiOperation({ summary: 'Atualiza um produto existente' })
+  @ApiResponse({ status: 200, description: 'Produto atualizado com sucesso.' })
+  @ApiResponse({ status: 400, description: 'Requisição inválida.' })
+  @ApiResponse({ status: 404, description: 'Produto não encontrado.' })
+  @ApiConsumes('multipart/form-data')
+  @ApiBody({
+    schema: {
+      type: 'object',
+      properties: {
+        name: { type: 'string', required: ['false'] }, // Opcional
+        description: { type: 'string', required: ['false'] }, // Opcional
+        price: { type: 'number', required: ['false'] }, // Opcional
+        image: {
+          type: 'string',
+          format: 'binary',
+          required: ['false'], // A imagem é opcional na atualização
+        },
+      },
+    },
+    type: UpdateProductDto, // Linka o DTO para o Swagger
+  })
+  update(
+    @Param('id') id: string,
+    @Body() updateProductDto: UpdateProductDto,
+    @UploadedFile() image?: Express.Multer.File,
+  ) {
+    return this.productsService.update(+id, updateProductDto, image);
   }
 
   @Delete(':id')

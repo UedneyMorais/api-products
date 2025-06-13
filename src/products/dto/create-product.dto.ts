@@ -12,6 +12,4 @@ export class CreateProductDto {
 
   @IsNotEmpty({ message: 'O preço do produto é obrigatório' })
   price: number;
-
-  //imagemPath: string;
 }
