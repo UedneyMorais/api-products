@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString, MinLength } from 'class-validator';
+import { IsNotEmpty, IsString, MinLength } from 'class-validator';
 
 export class CreateProductDto {
   @IsString({ message: 'O nome deve ser um texto(string)' })
@@ -9,7 +9,7 @@ export class CreateProductDto {
   @IsNotEmpty({ message: 'A descrição do produto é obrigatória' })
   @MinLength(5, { message: 'A descrição ter pelo menos 5 caracteres.' })
   description: string;
-  @IsNumber()
+
   @IsNotEmpty({ message: 'O preço do produto é obrigatório' })
   price: number;
 

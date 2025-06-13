@@ -17,9 +17,12 @@ export class ProductsService {
 
   async create(
     createProductDto: CreateProductDto,
-    imagePath: string,
+    image: Express.Multer.File,
   ): Promise<Product> {
     const slug = slugify(createProductDto.name, { lower: true });
+
+    const imagePath = `/uploads/${image.filename}`;
+
     const product = this.productRepository.create({
       ...createProductDto,
       imagePath,
