@@ -22,36 +22,47 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-Descrição
-Este é o repositório inicial para o projeto IonZ Teste (Sistema de Produtos), que demonstra uma aplicação completa com:
+## Descrição
 
-Backend: Desenvolvido com NestJS, oferece uma API RESTful para operações de CRUD (Criar, Ler, Atualizar, Deletar) de produtos, incluindo a funcionalidade de upload de imagens.
-Frontend: Construído com Angular e SSR (Server-Side Rendering), provê uma interface de usuário rica e performática para interagir com a API de produtos.
-Banco de Dados: Utiliza PostgreSQL para persistência de dados.
-Configuração do Projeto
+Este é o repositório inicial para o **projeto IonZ Teste (Sistema de Produtos)**, que demonstra uma aplicação completa com:
+
+* **Backend:** Desenvolvido com **NestJS**, oferece uma API RESTful para operações de **CRUD** (Criar, Ler, Atualizar, Deletar) de produtos, incluindo a funcionalidade de **upload de imagens**.
+* **Frontend:** Construído com **Angular e SSR (Server-Side Rendering)**, provê uma interface de usuário rica e performática para interagir com a API de produtos.
+* **Banco de Dados:** Utiliza **PostgreSQL** para persistência de dados.
+
+---
+
+## Configuração do Projeto
+
 Para configurar e rodar este projeto em seu ambiente local (sem Docker), siga os passos abaixo:
 
-Pré-requisitos
+### Pré-requisitos
+
 Certifique-se de que você tem as seguintes ferramentas instaladas em seu sistema:
 
-Node.js e NPM: Necessário para construir e executar tanto o backend NestJS quanto o frontend Angular. Recomendamos a versão 18.x ou superior do Node.js. Você pode baixá-lo em Node.js Download.
-PostgreSQL: O banco de dados para a aplicação. Você precisará ter uma instância de PostgreSQL rodando localmente e acessível. Baixe-o em PostgreSQL Download.
-1. Configuração do Banco de Dados PostgreSQL
-Certifique-se de que sua instância de PostgreSQL esteja em execução.
-Crie um banco de dados chamado product_db (ou o nome que preferir) e configure um usuário com permissões de acesso (ex: postgres com a senha root). Estas credenciais serão usadas pelo backend para se conectar.
+* **Node.js e NPM:** Necessário para construir e executar tanto o backend NestJS quanto o frontend Angular. **Recomendamos a versão 18.x ou superior do Node.js.** Você pode baixá-lo em [Node.js Download](https://nodejs.org/en/download/).
+* **PostgreSQL:** O banco de dados para a aplicação. Você precisará ter uma instância de PostgreSQL rodando localmente e acessível. Baixe-o em [PostgreSQL Download](https://www.postgresql.org/download/).
 
-2. Configuração e Execução do Backend (api-products)
-Navegue até o diretório api-products:
+### 1. Configuração do Banco de Dados PostgreSQL
 
-Bash
+Certifique-se de que sua instância de **PostgreSQL esteja em execução**.
+Crie um banco de dados chamado **`product_db`** (ou o nome que preferir) e configure um usuário com permissões de acesso (ex: `postgres` com a senha `root`). Estas credenciais serão usadas pelo backend para se conectar.
 
+### 2. Configuração e Execução do Backend (`api-products`)
+
+Navegue até o diretório `api-products`:
+
+```bash
 cd api-products
+
+```
+
 Instale as dependências:
 
 Bash
 
 $ npm install
-Copie o arquivo .env:
+Copie o arquivo .env para a pasta dist:
 Após a instalação das dependências, você precisa copiar o arquivo .env para a pasta dist. Este arquivo contém as variáveis de ambiente necessárias para a conexão com o banco de dados.
 
 Bash
@@ -148,8 +159,7 @@ If you are looking for a cloud-based platform to deploy your NestJS application,
 
 Bash
 
-$ npm install -g mau
-$ mau deploy
+<span class="math-inline">npm install \-g mau</span> mau deploy
 With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
 Resources
@@ -161,7 +171,7 @@ To dive deeper and get more hands-on experience, check out our official video co
 Deploy your application to AWS with the help of NestJS Mau in just a few clicks.
 Visualize your application graph and interact with the NestJS application in real-time using NestJS Devtools.
 Need help with your project (part-time to full-time)? Check out our official enterprise support.
-To stay in the loop and get updates, follow us on X and LinkedIn.
+To stay in the loop and get updates, follow us on X and [LinkedIn](https://www.google.com/search?q=https://linkedin.com/company/nestjs).
 Looking for a job, or have a job to offer? Check out our official Jobs board.
 Support
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please read more here.
