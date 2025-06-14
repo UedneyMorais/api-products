@@ -87,7 +87,6 @@ export class ProductsService {
         if (fs.existsSync(oldImagePathAbsolute)) {
           try {
             fs.unlinkSync(oldImagePathAbsolute);
-            this.logger.log(`Imagem antiga removida: ${oldImagePathAbsolute}`);
           } catch (error) {
             this.logger.warn(
               `Falha ao remover imagem antiga ${oldImagePathAbsolute}: ${error.message}`,
