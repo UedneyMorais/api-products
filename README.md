@@ -58,7 +58,6 @@ cd api-products
 ```
 
 Instale as dependências:
-
 ```bash
 $ npm install
 ```
@@ -79,6 +78,7 @@ DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=root
 DB_NAME=product_db
+
 Lembre-se de adaptar estes valores conforme a sua configuração real do PostgreSQL.
 
 Compile o projeto NestJS:
@@ -110,15 +110,16 @@ cd front-products
 
 Instale as dependências:
 
-Bash
-
+```bash
 $ npm install
+```
+
 Compile e inicie o projeto Angular (com SSR):
-
-Bash
-
+```bash
 $ npm run build -- --configuration production --ssr
 $ npm run serve:ssr
+```
+
 O primeiro comando compilará o frontend e os artefatos do Server-Side Rendering na pasta dist/. O segundo comando iniciará o servidor Angular com SSR.
 
 Para desenvolvimento (com watch mode):
@@ -135,7 +136,7 @@ Frontend (Angular): Acesse a interface do usuário em seu navegador através de 
 Backend (NestJS API): A API estará disponível em http://localhost:3000.
 Você pode acessar a documentação Swagger da API em http://localhost:3000/api.
 
-Solução de Problemas Comuns
+Solução de Problemas Comuns</br>
 Problemas de conexão com o banco de dados:
 Verifique se sua instância de PostgreSQL está realmente rodando.
 Confira se as variáveis de ambiente (DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME) no arquivo .env que foi copiado para a pasta dist do backend (api-products/dist/.env) estão configuradas corretamente para sua instância local de PostgreSQL.
