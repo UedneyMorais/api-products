@@ -131,8 +131,40 @@ export class ProductsController {
     status: 500,
     description: 'Internal Server Error: Failed to retrieve product.',
   })
-  findOne(@Param('id') id: string) {
-    return this.productsService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.productsService.findOne(id);
+  }
+
+  /**
+   * Retrieves a single product by its ID.
+   *
+   * @param id - The unique identifier of the product.
+   * @returns A Promise that resolves to the found Product entity.
+   */
+  @Get('/slug/:slug')
+  @ApiOperation({ summary: 'Retrieve a product by slug' })
+  @ApiParam({
+    name: 'slug',
+    description: 'The slug of the product.',
+    type: String,
+    example: 1,
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'Successfully retrieved the product.',
+    type: Product,
+  })
+  @ApiResponse({
+    status: 400,
+    description: 'Bad Request: Invalid product slug.',
+  })
+  @ApiResponse({ status: 404, description: 'Not Found: Product not found.' })
+  @ApiResponse({
+    status: 500,
+    description: 'Internal Server Error: Failed to retrieve product.',
+  })
+  findOneBySlug(@Param('slug') slug: string) {
+    return this.productsService.findOneBySlug(slug);
   }
 
   /**

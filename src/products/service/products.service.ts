@@ -53,6 +53,17 @@ export class ProductsService {
     return product;
   }
 
+  async findOneBySlug(slug: string): Promise<Product> {
+    const product = await this.productRepository.findOne({
+      where: { slug: slug },
+    });
+    if (!product) {
+      throw new NotFoundException();
+    }
+
+    return product;
+  }
+
   async update(
     id: number,
     updateProductDto: UpdateProductDto,
