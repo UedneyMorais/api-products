@@ -42,12 +42,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/products/2
+      - url: http://localhost:3000/products/12
         name: findOneByID
         meta:
           id: req_b8831e28bd81447d86175a952131a449
           created: 1749767662131
-          modified: 1749821977498
+          modified: 1749904415420
           isPrivate: false
           description: ""
           sortKey: -1748630208832.5
@@ -63,12 +63,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/products/13
+      - url: http://localhost:3000/products/edit/13
         name: updateByID
         meta:
           id: req_4bf575d18b644c5687d4e2ee5095a53b
           created: 1749767662132
-          modified: 1749821999170
+          modified: 1749910153516
           isPrivate: false
           description: ""
           sortKey: -1748195671344.75
@@ -111,12 +111,12 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/products
+      - url: http://localhost:3000/products/new
         name: create
         meta:
           id: req_4266a83558d74bbaa18cb6586bd2af22
           created: 1749767662133
-          modified: 1749820539905
+          modified: 1749910064900
           isPrivate: false
           description: ""
           sortKey: -1747978402600.875
@@ -159,16 +159,37 @@ collection:
             send: true
             store: true
           rebuildPath: true
-      - url: http://localhost:3000/products/5
+      - url: http://localhost:3000/products/delete/25
         name: deleteById
         meta:
           id: req_84d108dfa33a4d5281943797dd8cce47
           created: 1749767662134
-          modified: 1749819011434
+          modified: 1749913750578
           isPrivate: false
           description: ""
           sortKey: -1747869768228.9375
         method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/11.2.0
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/products/slug/acucar
+        name: findOneBySlug
+        meta:
+          id: req_094317c33dad4a6688e6db889353028f
+          created: 1749903874890
+          modified: 1749904204388
+          isPrivate: false
+          description: ""
+          sortKey: -1748412940088.625
+        method: GET
         headers:
           - name: User-Agent
             value: insomnia/11.2.0
