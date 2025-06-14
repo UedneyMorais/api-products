@@ -59,15 +59,17 @@ cd api-products
 
 Instale as dependências:
 
-Bash
-
+```bash
 $ npm install
+```
+
 Copie o arquivo .env para a pasta dist:
 Após a instalação das dependências, você precisa copiar o arquivo .env para a pasta dist. Este arquivo contém as variáveis de ambiente necessárias para a conexão com o banco de dados.
 
-Bash
-
+```bash
 $ cp .env dist/.env
+```
+
 Importante: Certifique-se de que o seu .env na raiz de api-products esteja configurado corretamente para sua instância local de PostgreSQL, por exemplo:
 
 Ini, TOML
@@ -81,30 +83,31 @@ Lembre-se de adaptar estes valores conforme a sua configuração real do Postgre
 
 Compile o projeto NestJS:
 
-Bash
-
+```bash
 $ npm run build
+```
 Este comando irá compilar o código TypeScript para JavaScript e salvar os arquivos na pasta dist/.
 
 Inicie o servidor do Backend:
 Para executar o backend em modo de produção:
 
-Bash
-
+```bash
 $ npm run start:prod
+```
 Para desenvolvimento (com watch mode, que recarrega as mudanças automaticamente):
 
-Bash
-
+```bash
 $ npm run start:dev
+```
 O backend estará ativo na porta 3000 por padrão.
 
 3. Configuração e Execução do Frontend (front-products)
 Abra uma nova janela do terminal e navegue até o diretório front-products:
 
-Bash
-
+```bash
 cd front-products
+```
+
 Instale as dependências:
 
 Bash
@@ -120,9 +123,9 @@ O primeiro comando compilará o frontend e os artefatos do Server-Side Rendering
 
 Para desenvolvimento (com watch mode):
 
-Bash
-
+```bash
 $ npm run start
+```
 O frontend estará ativo na porta 4000 por padrão ao usar serve:ssr. Se você usar npm run start, a porta padrão é 4200.
 
 Acessando a Aplicação
@@ -131,6 +134,7 @@ Com ambos os servidores (backend e frontend) em execução:
 Frontend (Angular): Acesse a interface do usuário em seu navegador através de http://localhost:4000 (ou http://localhost:4200 se estiver usando npm run start para o frontend).
 Backend (NestJS API): A API estará disponível em http://localhost:3000.
 Você pode acessar a documentação Swagger da API em http://localhost:3000/api.
+
 Solução de Problemas Comuns
 Problemas de conexão com o banco de dados:
 Verifique se sua instância de PostgreSQL está realmente rodando.
