@@ -7,6 +7,7 @@ import {
   UseInterceptors,
   UploadedFile,
   Patch,
+  Delete,
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import {
@@ -35,7 +36,7 @@ export class ProductsController {
    * @param image - The product image file.
    * @returns A Promise that resolves to the newly created Product entity.
    */
-  @Post()
+  @Post('/new')
   @ApiOperation({ summary: 'Create a new product' }) // Added summary for clarity
   @ApiResponse({
     status: 201,
@@ -175,7 +176,7 @@ export class ProductsController {
    * @param image - The new product image file (optional).
    * @returns A Promise that resolves to the updated Product entity.
    */
-  @Patch(':id')
+  @Patch('/edit/:id')
   @ApiOperation({ summary: 'Update an existing product' })
   @ApiParam({
     name: 'id',
@@ -236,13 +237,37 @@ export class ProductsController {
     return this.productsService.update(+id, updateProductDto, image);
   }
 
-  /**
-   * Deletes a product by its ID.
-   *
-   * @param id - The unique identifier of the product to delete.
-   * @returns A Promise that resolves to the result of the deletion operation.
-   */
-  remove(@Param('id') id: string) {
-    return this.productsService.remove(+id);
+  @Delete('/delete/:id')
+  @ApiOperation({ summary: 'Delete a product by ID' })
+  @ApiParam({
+    name: 'id',
+    description: 'The unique identifier of the product to delete.',
+    type: Number,
+    example: 1,
+  })
+  @ApiResponse({
+    status: 200,
+    description: 'The product has been successfully deleted.',
+    schema: {
+      type: 'object',
+      properties: {
+        message: {
+          type: 'string',
+          example: 'Product successfully deleted.',
+        },
+      },
+    },
+  })
+  @ApiResponse({
+    status: 404,
+    description: 'Not Found: Product with the given ID was not found.',
+  })
+  @ApiResponse({
+    status: 500,
+    description: 'Internal Server Error: Failed to delete the product.',
+  })
+  async remove(@Param('id') id: string) {
+    await this.productsService.remove(+id);
+    return { message: 'Product successfully deleted.' };
   }
 }
