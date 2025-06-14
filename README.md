@@ -47,15 +47,13 @@ Certifique-se de que sua instância de **PostgreSQL esteja em execução**.
 Crie um banco de dados chamado **`product_db`** (ou o nome que preferir) e configure um usuário com permissões de acesso (ex: `postgres` com a senha `root`). Estas credenciais serão usadas pelo backend para se conectar.
 
 ### 2. Configuração e Execução do Backend (`api-products`)
-
-Navegue até o diretório `api-products`:
+Navegue até o diretório api-products:
 
 ```bash
 cd api-products
-
 ```
-
 Instale as dependências:
+
 ```bash
 $ npm install
 ```
@@ -69,13 +67,13 @@ $ cp .env dist/.env
 
 Importante: Certifique-se de que o seu .env na raiz de api-products esteja configurado corretamente para sua instância local de PostgreSQL, por exemplo:
 
-Ini, TOML
-
+```bash
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=root
 DB_NAME=product_db
+```
 
 Lembre-se de adaptar estes valores conforme a sua configuração real do PostgreSQL.
 
@@ -99,80 +97,37 @@ $ npm run start:dev
 ```
 O backend estará ativo na porta 3000 por padrão.
 
-3. Configuração e Execução do Frontend (front-products)
-Abra uma nova janela do terminal e navegue até o diretório front-products:
+Acessando a API
+Com o backend em execução:
 
-```bash
-cd front-products
-```
-
-Instale as dependências:
-=======
-
-## Project setup
->>>>>>> dev
-
-```bash
-$ npm install
-```
-
-Compile e inicie o projeto Angular (com SSR):
-```bash
-$ npm run build -- --configuration production --ssr
-$ npm run serve:ssr
-```
-
-O primeiro comando compilará o frontend e os artefatos do Server-Side Rendering na pasta dist/. O segundo comando iniciará o servidor Angular com SSR.
-
-Para desenvolvimento (com watch mode):
-
-```bash
-$ npm run start
-```
-O frontend estará ativo na porta 4000 por padrão ao usar serve:ssr. Se você usar npm run start, a porta padrão é 4200.
-
-Acessando a Aplicação
-Com ambos os servidores (backend e frontend) em execução:
-
-Frontend (Angular): Acesse a interface do usuário em seu navegador através de http://localhost:4000 (ou http://localhost:4200 se estiver usando npm run start para o frontend).
-Backend (NestJS API): A API estará disponível em http://localhost:3000.
+API NestJS: A API estará disponível em http://localhost:3000.
 Você pode acessar a documentação Swagger da API em http://localhost:3000/api.
-
-Solução de Problemas Comuns</br>
-Problemas de conexão com o banco de dados:</br>
-Verifique se sua instância de PostgreSQL está realmente rodando.</br>
-Confira se as variáveis de ambiente (DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME) no arquivo .env que foi copiado para a pasta dist do backend (api-products/dist/.env) estão configuradas corretamente para sua instância local de PostgreSQL.</br>
-
-Backend não inicia após npm run build:</br>
-Certifique-se de estar executando npm run start:prod (ou npm run start:dev) a partir do diretório api-products.</br>
-Confirme que o arquivo .env foi copiado corretamente para a pasta dist e que as permissões de leitura estão corretas.</br>
-
-Frontend não se conecta ao backend:</br>
-Verifique se o backend está realmente rodando e acessível na porta esperada (padrão 3000).</br>
-Pode ser necessário ajustar a URL da API no código do frontend se o backend estiver em uma porta diferente ou em um host remoto.</br>
-
+Solução de Problemas Comuns
+Problemas de conexão com o banco de dados:
+Verifique se sua instância de PostgreSQL está realmente rodando.
+Confira se as variáveis de ambiente (DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME) no arquivo .env que foi copiado para a pasta dist do backend (api-products/dist/.env) estão configuradas corretamente para sua instância local de PostgreSQL.
+Backend não inicia após npm run build:
+Certifique-se de estar executando npm run start:prod (ou npm run start:dev) a partir do diretório api-products.
+Confirme que o arquivo .env foi copiado corretamente para a pasta dist e que as permissões de leitura estão corretas.
 Rodar testes
-# unit tests
 ```bash
+# testes de unidade
 $ npm run test
-```
-# e2e tests
-```bash
-$ npm run test:e2e
-```
 
-# test coverage
-```bash
+# testes e2e
+$ npm run test:e2e
+
+# cobertura de testes
 $ npm run test:cov
 ```
-Implantação (Deployment)<br>
-Quando você estiver pronto para implantar sua aplicação NestJS em produção, há algumas etapas importantes que você pode seguir para garantir que ela funcione da forma mais eficiente possível. Consulte a documentação de implantação para mais informações.</br>
 
-Se você estiver procurando por uma plataforma baseada em nuvem para implantar sua aplicação NestJS, confira o Mau, nossa plataforma oficial para implantar aplicações NestJS na AWS. O Mau torna a implantação direta e rápida, exigindo apenas alguns passos simples:</br>
+Implantação (Deployment)
+Quando você estiver pronto para implantar sua aplicação NestJS em produção, há algumas etapas importantes que você pode seguir para garantir que ela funcione da forma mais eficiente possível. Consulte a documentação de implantação para mais informações.
+
+Se você estiver procurando por uma plataforma baseada em nuvem para implantar sua aplicação NestJS, confira o Mau, nossa plataforma oficial para implantar aplicações NestJS na AWS. O Mau torna a implantação direta e rápida, exigindo apenas alguns passos simples:
+
 ```bash
-<span class="math-inline">npm install \-g mau</span> mau deploy
+$ npm install -g mau
+$ mau deploy
 ```
 Com o Mau, você pode implantar sua aplicação em apenas alguns cliques, permitindo que você se concentre na construção de recursos em vez de gerenciar a infraestrutura.
-
-Licença
-Nest está licenciado sob a MIT.
