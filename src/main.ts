@@ -10,7 +10,6 @@ async function bootstrap() {
     .setTitle('Api de Produtos')
     .setDescription('Api para gerenciamento de produtos')
     .setVersion('1.0')
-    .addTag('produtos')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
