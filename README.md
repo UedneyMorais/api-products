@@ -22,7 +22,12 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descrição
+Este é o repositório inicial para o projeto IonZ Teste (Sistema de Produtos), que demonstra uma aplicação completa com:
+
+Backend: Desenvolvido com NestJS, oferece uma API RESTful para operações de CRUD (Criar, Ler, Atualizar, Deletar) de produtos, incluindo a funcionalidade de upload de imagens.
+Frontend: Construído com Angular e SSR (Server-Side Rendering), provê uma interface de usuário rica e performática para interagir com a API de produtos.
+Banco de Dados: Utiliza PostgreSQL para persistência de dados.
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
