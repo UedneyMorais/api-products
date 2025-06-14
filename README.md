@@ -32,11 +32,18 @@ Banco de Dados: Utiliza PostgreSQL para persistência de dados.
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 
-## Project setup
+## Configuração do Projeto
 
-```bash
-$ npm install
-```
+Para configurar e rodar este projeto em seu ambiente local (sem Docker), siga os passos abaixo:
+
+Pré-requisitos
+Certifique-se de que você tem as seguintes ferramentas instaladas em seu sistema:
+
+Node.js e NPM: Necessário para construir e executar tanto o backend NestJS quanto o frontend Angular. Recomendamos a versão 18.x ou superior do Node.js. Você pode baixá-lo em Node.js Download.
+PostgreSQL: O banco de dados para a aplicação. Você precisará ter uma instância de PostgreSQL rodando localmente e acessível. Baixe-o em PostgreSQL Download.
+1. Configuração do Banco de Dados PostgreSQL
+Certifique-se de que sua instância de PostgreSQL esteja em execução.
+Crie um banco de dados chamado product_db (ou o nome que preferir) e configure um usuário com permissões de acesso (ex: postgres com a senha root). Estas credenciais serão usadas pelo backend para se conectar.
 
 ## Compile and run the project
 
