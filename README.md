@@ -160,33 +160,33 @@ $ npm run test:e2e
 ```bash
 $ npm run test:cov
 ```
-Deployment
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the deployment documentation for more information.
+Implantação (Deployment)<br>
+Quando você estiver pronto para implantar sua aplicação NestJS em produção, há algumas etapas importantes que você pode seguir para garantir que ela funcione da forma mais eficiente possível. Consulte a documentação de implantação para mais informações.
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out Mau, our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Se você estiver procurando por uma plataforma baseada em nuvem para implantar sua aplicação NestJS, confira o Mau, nossa plataforma oficial para implantar aplicações NestJS na AWS. O Mau torna a implantação direta e rápida, exigindo apenas alguns passos simples:
 
-```bash
+Bash
+
 <span class="math-inline">npm install \-g mau</span> mau deploy
-```
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Com o Mau, você pode implantar sua aplicação em apenas alguns cliques, permitindo que você se concentre na construção de recursos em vez de gerenciar a infraestrutura.
 
-Resources
-Check out a few resources that may come in handy when working with NestJS:
+Recursos
+Confira alguns recursos que podem ser úteis ao trabalhar com NestJS:
 
-Visit the NestJS Documentation to learn more about the framework.
-For questions and support, please visit our Discord channel.
-To dive deeper and get more hands-on experience, check out our official video courses.
-Deploy your application to AWS with the help of NestJS Mau in just a few clicks.
-Visualize your application graph and interact with the NestJS application in real-time using NestJS Devtools.
-Need help with your project (part-time to full-time)? Check out our official enterprise support.
-To stay in the loop and get updates, follow us on X and [LinkedIn](https://www.google.com/search?q=https://linkedin.com/company/nestjs).
-Looking for a job, or have a job to offer? Check out our official Jobs board.
-Support
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please read more here.
+Visite a Documentação do NestJS para aprender mais sobre o framework.
+Para perguntas e suporte, por favor, visite nosso canal Discord.
+Para se aprofundar e ter mais experiência prática, confira nossos cursos em vídeo oficiais.
+Implante sua aplicação no AWS com a ajuda do NestJS Mau em apenas alguns cliques.
+Visualize o grafo da sua aplicação e interaja com a aplicação NestJS em tempo real usando o NestJS Devtools.
+Precisa de ajuda com seu projeto (meio período ou tempo integral)? Confira nosso suporte empresarial oficial.
+Para ficar por dentro e receber atualizações, siga-nos no X e LinkedIn.
+Procurando um emprego, ou tem uma vaga para oferecer? Confira nosso quadro de empregos oficial.
+Suporte
+Nest é um projeto de código aberto licenciado pelo MIT. Ele pode crescer graças aos patrocinadores e ao apoio de incríveis contribuidores. Se você gostaria de se juntar a eles, por favor, leia mais aqui.
 
-Stay in touch
-Author - Kamil Myśliwiec
+Mantenha Contato
+Autor - Kamil Myśliwiec
 Website - https://nestjs.com
 Twitter - @nestframework
-License
-Nest is MIT licensed.
+Licença
+Nest está licenciado sob a MIT.
