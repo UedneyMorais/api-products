@@ -19,24 +19,25 @@ README do Projeto: IonZ Teste (Sistema de Produtos)
 &lt;/p>
 
 Descrição
-Este projeto é um sistema completo para gerenciamento de produtos, composto por um Backend (NestJS) e um Frontend (Angular com SSR). Ele se conecta a um banco de dados PostgreSQL para persistência dos dados.
+Este é um sistema completo para gerenciamento de produtos, composto por um Backend (NestJS) e um Frontend (Angular com Server-Side Rendering). O projeto interage com um banco de dados PostgreSQL para persistência de dados.
 
-Backend: Desenvolvido com NestJS, oferece uma API RESTful para realizar operações de CRUD (Criar, Ler, Atualizar, Deletar) em produtos, incluindo o upload de imagens.
-Frontend: Construído com Angular e Server-Side Rendering (SSR), provê uma interface intuitiva para interagir com a API de produtos.
-Banco de Dados: Utiliza PostgreSQL para a persistência dos dados dos produtos. Você precisará ter uma instância de PostgreSQL rodando localmente ou acessível.
-Configuração do Projeto e Execução
-Para rodar o projeto, siga os passos abaixo. Não estamos utilizando Docker, então a configuração é mais direta.
+Backend: Desenvolvido com NestJS, ele expõe uma API RESTful completa para operações de CRUD (Criar, Ler, Atualizar, Deletar) de produtos, incluindo a funcionalidade de upload de imagens.
+Frontend: Construído com Angular e SSR (Server-Side Rendering), oferece uma interface de usuário rica e performática para interagir com a API de produtos.
+Banco de Dados: Utiliza PostgreSQL para armazenar as informações dos produtos. Você precisará ter uma instância de PostgreSQL rodando localmente ou em um servidor acessível.
+Configuração e Execução do Projeto
+Para colocar o projeto em funcionamento em seu ambiente local, siga as instruções abaixo:
 
 Pré-requisitos
-Certifique-se de ter as seguintes ferramentas instaladas em seu sistema:
+Antes de iniciar, certifique-se de que você tem as seguintes ferramentas instaladas em seu sistema:
 
-Node.js e NPM: Necessário para construir e executar os projetos Angular e NestJS. Recomendado: Node.js 18.x ou superior. Você pode baixá-lo em Node.js Download.
-PostgreSQL: O banco de dados para a aplicação. Você precisará de uma instância de PostgreSQL rodando e acessível. Baixe-o em PostgreSQL Download.
+Node.js e NPM: Necessário para construir e executar tanto o backend NestJS quanto o frontend Angular. Recomendamos a versão 18.x ou superior do Node.js. Você pode baixá-lo em Node.js Download.
+PostgreSQL: O banco de dados para a aplicação. Você precisará ter uma instância de PostgreSQL rodando localmente e acessível. Baixe-o em PostgreSQL Download.
 1. Configuração do Banco de Dados PostgreSQL
-Certifique-se de que seu banco de dados PostgreSQL esteja rodando e que você tenha um banco de dados (product_db) e um usuário (postgres com senha root, ou suas credenciais preferidas) configurados e acessíveis.
+Certifique-se de que sua instância de PostgreSQL esteja em execução.
+Crie um banco de dados chamado product_db (ou o nome que preferir) e configure um usuário com permissões de acesso, por exemplo, postgres com a senha root. Estas credenciais serão usadas pelo backend para se conectar.
 
 2. Configuração e Execução do Backend (api-products)
-Navegue até o diretório api-products:
+Navegue até o diretório do backend:
 
 Bash
 
@@ -47,23 +48,23 @@ Bash
 
 npm install
 Crie e configure o arquivo .env:
-Crie um arquivo .env na raiz do diretório api-products (ou copie e renomeie o .env.example). As variáveis de ambiente para a conexão com o banco de dados devem ser configuradas para sua instância local de PostgreSQL.
+Crie um arquivo chamado .env na raiz do diretório api-products. Você pode usar o .env.example como base. Certifique-se de que as variáveis de ambiente para a conexão com o banco de dados estejam configuradas corretamente para sua instância local de PostgreSQL:
 
-Exemplo de .env:
+Ini, TOML
 
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=root
 DB_NAME=product_db
-Ajuste DB_HOST, DB_USER, DB_PASSWORD, e DB_NAME conforme sua configuração local do PostgreSQL.
+Atenção: Adapte os valores de DB_HOST, DB_USER, DB_PASSWORD e DB_NAME conforme a sua configuração real do PostgreSQL.
 
 Compile o projeto NestJS:
 
 Bash
 
 npm run build
-Este comando irá gerar os arquivos JavaScript compilados na pasta dist/.
+Este comando irá compilar o código TypeScript para JavaScript e salvar os arquivos na pasta dist/.
 
 Inicie o servidor do Backend:
 Após a compilação, para executar o backend em modo de produção:
@@ -71,15 +72,15 @@ Após a compilação, para executar o backend em modo de produção:
 Bash
 
 npm run start:prod
-Para desenvolvimento (com watch mode para auto-recarregar as mudanças):
+Para desenvolvimento (com watch mode, que recarrega as mudanças automaticamente):
 
 Bash
 
 npm run start:dev
-O backend estará escutando na porta 3000 por padrão.
+O backend estará ativo na porta 3000 por padrão.
 
 3. Configuração e Execução do Frontend (front-products)
-Em uma nova janela do terminal, navegue até o diretório front-products:
+Abra uma nova janela do terminal e navegue até o diretório do frontend:
 
 Bash
 
@@ -95,30 +96,30 @@ Bash
 
 npm run build -- --configuration production --ssr
 npm run serve:ssr
-O primeiro comando irá compilar o frontend e os artefatos de Server-Side Rendering no diretório dist/. O segundo comando iniciará o servidor Angular com SSR.
+O primeiro comando compilará o frontend e os artefatos do Server-Side Rendering na pasta dist/. O segundo comando iniciará o servidor Angular com SSR.
 
-Para desenvolvimento (com watch mode para auto-recarregar as mudanças):
+Para desenvolvimento (com watch mode):
 
 Bash
 
 npm run start
-O frontend estará escutando na porta 4000 por padrão ao usar serve:ssr. Se você usar npm run start, a porta padrão é 4200.
+O frontend estará ativo na porta 4000 por padrão ao usar serve:ssr. Se você usar npm run start, a porta padrão é 4200.
 
 Acessando a Aplicação
 Com ambos os servidores (backend e frontend) em execução:
 
-Frontend (Angular): Acesse-o em seu navegador através de http://localhost:4000 (ou http://localhost:4200 se estiver usando npm run start para o frontend).
+Frontend (Angular): Acesse a interface do usuário em seu navegador através de http://localhost:4000 (ou http://localhost:4200 se estiver usando npm run start para o frontend).
 Backend (NestJS API): A API estará disponível em http://localhost:3000.
-A documentação Swagger da API pode ser acessada em http://localhost:3000/api (ou a rota que você configurou para o Swagger em seu backend).
+Você pode acessar a documentação Swagger da API em http://localhost:3000/api (ou a rota que você configurou para o Swagger em seu backend).
 Solução de Problemas Comuns
 Problemas de conexão com o banco de dados:
-Verifique se o seu PostgreSQL está rodando.
-Confira se as variáveis de ambiente DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME no arquivo .env do backend (api-products/.env) estão configuradas corretamente para sua instância local.
+Verifique se sua instância de PostgreSQL está realmente rodando.
+Confira se as variáveis de ambiente (DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME) no arquivo .env do backend (api-products/.env) estão configuradas corretamente para sua instância local de PostgreSQL.
 Backend não inicia após npm run build:
-Certifique-se de que você está executando npm run start:prod (ou npm run start:dev) no diretório api-products.
+Certifique-se de estar executando npm run start:prod (ou npm run start:dev) a partir do diretório api-products.
 Confirme que o arquivo .env está presente na raiz do diretório api-products e que as permissões de leitura estão corretas.
 Frontend não se conecta ao backend:
-Verifique se o backend está realmente rodando na porta esperada (padrão 3000).
+Verifique se o backend está realmente rodando e acessível na porta esperada (padrão 3000).
 Pode ser necessário ajustar a URL da API no código do frontend se o backend estiver em uma porta diferente ou em um host remoto.
 Recursos
 Confira alguns recursos que podem ser úteis ao trabalhar com NestJS:
