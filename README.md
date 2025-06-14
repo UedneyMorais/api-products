@@ -145,25 +145,29 @@ Confirme que o arquivo .env foi copiado corretamente para a pasta dist e que as 
 Frontend não se conecta ao backend:
 Verifique se o backend está realmente rodando e acessível na porta esperada (padrão 3000).
 Pode ser necessário ajustar a URL da API no código do frontend se o backend estiver em uma porta diferente ou em um host remoto.
+
 Rodar testes
-Bash
-
 # unit tests
+```bash
 $ npm run test
-
+```
 # e2e tests
+```bash
 $ npm run test:e2e
+```
 
 # test coverage
+```bash
 $ npm run test:cov
+```
 Deployment
 When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the deployment documentation for more information.
 
 If you are looking for a cloud-based platform to deploy your NestJS application, check out Mau, our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
 
-Bash
-
+```bash
 <span class="math-inline">npm install \-g mau</span> mau deploy
+```
 With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
 Resources
