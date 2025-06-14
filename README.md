@@ -137,15 +137,15 @@ Backend (NestJS API): A API estará disponível em http://localhost:3000.
 Você pode acessar a documentação Swagger da API em http://localhost:3000/api.
 
 Solução de Problemas Comuns</br>
-Problemas de conexão com o banco de dados:
-Verifique se sua instância de PostgreSQL está realmente rodando.
-Confira se as variáveis de ambiente (DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME) no arquivo .env que foi copiado para a pasta dist do backend (api-products/dist/.env) estão configuradas corretamente para sua instância local de PostgreSQL.
-Backend não inicia após npm run build:
-Certifique-se de estar executando npm run start:prod (ou npm run start:dev) a partir do diretório api-products.
-Confirme que o arquivo .env foi copiado corretamente para a pasta dist e que as permissões de leitura estão corretas.
-Frontend não se conecta ao backend:
-Verifique se o backend está realmente rodando e acessível na porta esperada (padrão 3000).
-Pode ser necessário ajustar a URL da API no código do frontend se o backend estiver em uma porta diferente ou em um host remoto.
+Problemas de conexão com o banco de dados:</br>
+Verifique se sua instância de PostgreSQL está realmente rodando.</br>
+Confira se as variáveis de ambiente (DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME) no arquivo .env que foi copiado para a pasta dist do backend (api-products/dist/.env) estão configuradas corretamente para sua instância local de PostgreSQL.</br>
+Backend não inicia após npm run build:</br>
+Certifique-se de estar executando npm run start:prod (ou npm run start:dev) a partir do diretório api-products.</br>
+Confirme que o arquivo .env foi copiado corretamente para a pasta dist e que as permissões de leitura estão corretas.</br>
+Frontend não se conecta ao backend:</br>
+Verifique se o backend está realmente rodando e acessível na porta esperada (padrão 3000).</br>
+Pode ser necessário ajustar a URL da API no código do frontend se o backend estiver em uma porta diferente ou em um host remoto.</br>
 
 Rodar testes
 # unit tests
