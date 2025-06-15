@@ -1,3 +1,8 @@
+/* eslint-disable @typescript-eslint/prefer-promise-reject-errors */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -19,11 +24,25 @@ import { join } from 'path';
         type: 'postgres',
         host: configService.get<string>('DB_HOST'),
         port: configService.get<number>('DB_PORT'),
-        username: configService.get<string>('DB_USERNAME'),
+        username: configService.get<string>('DB_USER'),
         password: configService.get<string>('DB_PASSWORD'),
-        database: configService.get<string>('DB_DATABASE'),
+        database: configService.get<string>('DB_NAME'),
         autoLoadEntities: true,
         synchronize: true,
+        retryAttempts: 10,
+        retryDelay: 3000,
+        autoReconnect: true,
+        connectionFactory: (connectionOptions) => {
+          return new Promise((resolve, reject) => {
+            const connection = new (require('typeorm').createConnection)(
+              connectionOptions,
+            );
+            connection.then(resolve).catch((err) => {
+              console.error('Database connection failed!', err);
+              reject(err);
+            });
+          });
+        },
       }),
     }),
     ProductsModule,
