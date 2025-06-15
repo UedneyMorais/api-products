@@ -11,6 +11,7 @@ import { ProductsModule } from './products/products.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { HealthController } from './health/health.controller';
 
 @Module({
   imports: [
@@ -55,7 +56,7 @@ import { join } from 'path';
       serveRoot: '/uploads/',
     }),
   ],
-  controllers: [AppController],
+  controllers: [AppController, HealthController],
   providers: [AppService],
 })
 export class AppModule {}
